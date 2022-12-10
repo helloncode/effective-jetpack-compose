@@ -31,7 +31,7 @@ class ExampleStartupBenchmark {
     fun startup() = benchmarkRule.measureRepeated(
         packageName = "bonni.francesco.effectivecompose",
         metrics = listOf(StartupTimingMetric()),
-        compilationMode = CompilationMode.Partial(baselineProfileMode = BaselineProfileMode.Require),
+        compilationMode = CompilationMode.Partial(baselineProfileMode = BaselineProfileMode.Disable, warmupIterations = 1),
         iterations = 5,
         startupMode = StartupMode.COLD
     ) {
